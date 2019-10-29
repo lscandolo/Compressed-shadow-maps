@@ -1,0 +1,36 @@
+#version 450 core
+#extension GL_ARB_compute_shader : require
+#extension GL_ARB_shader_storage_buffer_object : require
+
+//////////////////////////////////////////////////////////////////////////
+// Tiling Settings
+//////////////////////////////////////////////////////////////////////////
+#extension GL_ARB_compute_variable_group_size : enable
+
+#ifdef GL_ARB_compute_variable_group_size
+	layout( local_size_variable ) in;
+#else
+	#define TILE_WIDTH  32
+	#define TILE_HEIGHT 32
+	layout( local_size_x = TILE_WIDTH, local_size_y = TILE_HEIGHT ) in;
+#endif
+
+uniform int   in_mipmap    = 0;
+layout(binding = 0) uniform sampler2D in_tex;
+
+uniform ivec4 out_channels = ivec4(0,1,2,3);
+layout(binding = 1) writeonly uniform image2D out_tex;
+
+
+void main()
+{
+	ivec2 out_size  = imageSize( out_tex ).xy;
+	ivec2 out_pixel = ivec2( gl_GlobalInvocationID );
+
+	vec2 coord = (out_pixel+0.5) / out_size;
+
+	vec4 in_vals = textureLod(in_tex, coord, in_mipmap);
+	vec4 out_vals = vec4(in_vals[out_channels.x], in_vals[out_channels.y], in_vals[out_channels.z], in_vals[out_channels.w]);
+
+	imageStore( out_tex, out_pixel, out_vals);
+}

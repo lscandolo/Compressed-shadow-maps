@@ -1,0 +1,89 @@
+#version 430
+#extension GL_NV_gpu_shader5: enable
+
+layout (local_size_x = 16, local_size_y = 16) in;
+
+layout(binding = 0, r8)  uniform image2D   shadowtex;
+
+
+uniform bool  light_is_dir = false;
+uniform vec3  light_dir;
+uniform vec3  light_spotpos;
+uniform float light_spotangle;
+uniform vec3  light_color;
+uniform float light_intensity;
+uniform float light_near;
+uniform float light_far;
+
+uniform vec3  ws_campos;
+uniform vec2  cam_nearfar;
+
+uniform sampler2D wpostex;
+uniform sampler2D wdpostex;
+uniform sampler2D wnortex;
+
+uniform int  PCFSIZE = 0;
+uniform bool hierarchical_eval = true;
+
+#include "quadtree_prelude.frag"
+
+#if RELATIVE_VALUES 
+	#include "quadtree_body_rel.frag"
+#else
+	#include "quadtree_body_abs.frag"
+#endif
+
+
+void main() 
+{
+	ivec2 pixelCoord = ivec2(gl_GlobalInvocationID.xy);
+	
+	float shadowval = 0.f;
+
+
+	vec4 worldPos = texelFetch(wpostex, pixelCoord, 0); 
+	if (worldPos.w == 0.f) { 
+		//imageStore(shadowtex,  pixelCoord,  vec4(0.5, 0, 0, 0)); 
+		return; 
+	}
+
+	worldPos.w = 1.f;
+
+	vec4 worldNor =  texelFetch(wnortex, pixelCoord, 0); 
+	vec3 lightDir = light_is_dir ? light_dir :  worldPos.xyz - light_spotpos;
+
+
+	float costheta = dot(lightDir, worldNor.xyz);
+	if (costheta >= 0.f) { 
+		//imageStore(shadowtex,  pixelCoord,  vec4(0.2, 0, 0, 0));
+		return; 
+	}
+
+	vec4 lCoords = computeShadowNormalizedCoordinates(worldPos.xyz);
+	if (lCoords.x < 0.f || lCoords.x >= 1.f || 
+		lCoords.y < 0.f || lCoords.y >= 1.f || 
+		lCoords.z < 0.f || lCoords.z >= 1.f)
+		return;
+		 
+	vec4 worldDPos = texelFetch(wdpostex, pixelCoord, 0); 
+	vec4 deltaPos = vec4(worldPos.xyz + worldDPos.xyz, 1.f);
+	vec4 deltaCoords = computeShadowNormalizedCoordinates(deltaPos.xyz);
+
+	deltaCoords.x -= lCoords.x;
+	deltaCoords.y -= lCoords.y;
+
+	float flodlevel = 0;
+	float fpixelsize = 1;
+
+	uint32_t resolution = 1 << maxTreeLevel;
+	fpixelsize = depthMapResolution * sqrt(deltaCoords.x*deltaCoords.x+deltaCoords.y*deltaCoords.y) * 0.33f;//!!
+	flodlevel = log2(fpixelsize);
+	const float maxLod = 5.f;
+	flodlevel = max(0.f, min(flodlevel, maxLod));
+	float bias = (flodlevel*flodlevel + 1.f) * 0.00005;
+
+	float shadowValue = evaluateQuadtreeHierarchicalPCF(lCoords, bias, uint8_t(PCFSIZE), hierarchical_eval ? flodlevel : 0, hierarchical_eval ? fpixelsize : 1);
+
+	shadowval = (1-shadowValue) ;
+	if (shadowval > 0.0) imageStore(shadowtex,  pixelCoord,  vec4(shadowval, 0, 0, 0));
+}

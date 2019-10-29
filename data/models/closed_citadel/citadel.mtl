@@ -1,0 +1,217 @@
+# Blender MTL File: 'None'
+# Material Count: 20
+
+newmtl Beams
+Ns 0.00843137
+Ka 0.000000 0.000000 0.000000
+Kd 1.0 1.0 1.0
+Ks 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd maps\bark.jpg
+map_Ka maps\bark.jpg
+
+newmtl BridgeMat
+Ns 0.00843137
+Ka 0.000000 0.000000 0.000000
+Kd 0.5 0.4 0.2
+Ks 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+
+newmtl Castle_Assets_Textures_M_Tree_FallBark_01
+Ns 27.450980
+Ka 0.000000 0.000000 0.000000
+Kd 0.4 0.3 0.1
+Ks 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+
+newmtl GroundMat
+Ns 0.00843137
+Ka 0.000000 0.000000 0.000000
+Kd 0.6 0.5 0.4
+Ks 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+
+newmtl Material__131
+Ns 0.00843137
+Ka 0.000000 0.000000 0.000000
+Kd 1.0 1.0 1.0
+Ks 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd maps\clayroof.jpg
+map_Ka maps\clayroof.jpg
+
+newmtl Material__132
+Ns 0.00843137
+Ka 0.000000 0.000000 0.000000
+Kd 0.5 0.4 0.4
+Ks 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+
+newmtl Material__204
+Ns 56.862745
+Ka 0.000000 0.000000 0.000000
+Kd 0.6 0.5 0.6
+Ks 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+
+
+newmtl Material__304
+Ns 0.00843137
+Ka 0.000000 0.000000 0.000000
+Kd 1.0 1.0 1.0
+Ks 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd maps\bark.jpg
+map_Ka maps\bark.jpg
+
+newmtl Material__305
+Ns 0.00843137
+Ka 0.000000 0.000000 0.000000
+Kd 1.0 1.0 1.0
+Ks 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd maps\stone.jpg
+map_Ka maps\stone.jpg
+
+newmtl Material__306
+Ns 0.00343137
+Ka 0.000000 0.000000 0.000000
+Kd 1.0 1.0 1.0
+Ks 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd maps\bricks_05_dif.png
+map_Ka maps\bricks_05_dif.png
+
+newmtl Material__307
+Ns 0.00343137
+Ka 0.000000 0.000000 0.000000
+Kd 1.0 1.0 1.0
+Ks 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd maps\dirt.jpg
+map_Ka maps\dirt.jpg
+
+newmtl Material__308
+Ns 0.00843137
+Ka 0.000000 0.000000 0.000000
+Kd 1.0 1.0 1.0
+Ks 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+
+newmtl Material__3248
+Ns 0.00843137
+Ka 0.000000 0.000000 0.000000
+Kd 0.5 0.5 0.5
+Ks 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+
+newmtl Material__3564
+Ns 0.00843137
+Ka 0.000000 0.000000 0.000000
+Kd 0.1 0.4 0.6
+Ks 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+
+newmtl Material__83
+Ns 0.00843137
+Ka 0.000000 0.000000 0.000000
+Kd 1.0 1.0 1.0
+Ks 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd maps\stone.jpg
+map_Ka maps\stone.jpg
+
+newmtl Material__96
+Ns 0.00843137
+Ka 0.000000 0.000000 0.000000
+Kd 0.4 0.4 0.4
+Ks 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+
+newmtl MountainMat
+Ns 0.00843137
+Ka 0.000000 0.000000 0.000000
+Kd 0.5 0.5 0.5
+Ks 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+
+newmtl MountainMat2
+Ns 0.00843137
+Ka 0.000000 0.000000 0.000000
+Kd 0.5 0.5 0.5
+Ks 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd   maps\stone.jpg
+map_Ka   maps\stone.jpg
+
+
+newmtl Roof
+Ns 0.00843137
+Ka 0.000000 0.000000 0.000000
+Kd 1.0 1.0 1.0
+Ks 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd maps\clayroof.jpg
+map_Bump maps\clayroof.jpg
+map_Ka maps\clayroof.jpg
+
+newmtl StoneWall
+Ns 47.058824
+Ka 0.000000 0.000000 0.000000
+Kd 1.0 1.0 1.0
+Ks 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd maps\bricks_05_dif.png
+map_Bump maps\bricks_05_nor.png
+map_Ka maps\bricks_05_dif.png
+
+newmtl Wood
+Ns 0.00843137
+Ka 0.000000 0.000000 0.000000
+Kd 1.0 1.0 1.0
+Ks 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd maps\oldwood.jpg
+map_Ka maps\oldwood.jpg

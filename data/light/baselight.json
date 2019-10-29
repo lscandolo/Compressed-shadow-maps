@@ -1,0 +1,28 @@
+{ "lights": 
+	[
+		{
+			"type": "point",
+			"position": [0.0, 0.2, 0.0],
+			"color": [1.0, 1.0, 1.0],
+			"intensity": 1.5
+		},
+				
+		{
+			"type": "directional",
+			"direction": [1.0, -1.0, 1.0],
+			"color": [0.326, 0.362, 0.936],
+			"intensity": 1.5
+		},
+
+		{
+			"type": "spot",
+			"position": [1.1, 2.3, 0.87],
+			"direction": [-0.5, -0.75, -0.5],
+			"spotangle": 0.2,
+			"color": [0.5, 0.7, 0.8],
+			"intensity": 2.5
+		}		
+	],
+	
+  "ambient": [0.3, 0.3, 0.3]
+}

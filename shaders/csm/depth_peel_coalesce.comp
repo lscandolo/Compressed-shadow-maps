@@ -1,0 +1,35 @@
+#version 430
+
+layout(std430, binding = 0) buffer globalStatus
+	{
+		writeonly int globalActive;
+	};
+
+layout(binding = 0, r8i)            uniform iimage2D   statusTex;
+layout(binding = 1, r32f) writeonly uniform image2D    depthTex;
+layout(binding = 2)                 uniform sampler2D  layerTex;
+layout(binding = 3)                 uniform usampler2D sideTex;
+
+
+layout (local_size_x = 32, local_size_y = 32) in;
+
+void main() 
+{
+	ivec2 pixelCoord = ivec2(gl_GlobalInvocationID.xy);
+	int   status = imageLoad(statusTex, pixelCoord).x;
+	
+	if (status == 0) return;
+	
+	float layerDepth = texelFetch(layerTex, pixelCoord, 0).x;
+	// float backFaceDepth  = texelFetch(backFaceTex, pixelCoord, 0).x;
+	
+	bool frontFacing = texelFetch(sideTex, pixelCoord, 0).x != 0;
+
+	if (frontFacing) status++;
+	else             status--;
+
+	if (status > 0) { globalActive = 1; }
+		
+    imageStore(statusTex, pixelCoord, ivec4(status,0,0,0));
+    imageStore(depthTex,  pixelCoord,  vec4(layerDepth, 0, 0, 0));
+}

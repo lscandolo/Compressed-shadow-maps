@@ -1,0 +1,12 @@
+{ "lights": 
+	[
+		{
+			"type": "point",
+			"position": [0.0, 0.2, 0.0],
+			"color": [1.0, 1.0, 1.0],
+			"intensity": 0.0
+		}
+	],
+	
+  "ambient": [1.0, 1.0, 1.0]
+}
