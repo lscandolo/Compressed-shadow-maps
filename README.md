@@ -11,3 +11,5 @@ The details of this project can be found in the following publications:
 Further information can be found at https://graphics.tudelft.nl/Publications-new/2016/SBE16/ and https://graphics.tudelft.nl/Publications-new/2016/SBE16a/
 
 *The project is prepared to be run in Visual Studio 2017 or 2019 through premake. Using the premake-vs201X.bat batch file will generate the solution in the build directory. CUDA is necessary for the creation and (optionally) the evaluation of the compressed shadow maps.*
+
+![Compressed shadow maps](https://graphics.tudelft.nl/Publications-new/2016/SBE16a/teaser.png "Compressed shadow maps")
