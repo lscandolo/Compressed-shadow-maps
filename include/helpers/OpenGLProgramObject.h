@@ -1,7 +1,8 @@
 ﻿/**
- * @date 08/09/2011
- * @author Matthias Holländer
- * The character codes in this file are Copyright (c) 2009-2013 Matthias Holländer.
+ * @author Matthias Holländer and Leonardo Scandolo
+ * The character codes in this file are Copyright(c)
+ * 2009 - 2013 Matthias Holländer.
+ * 2015 - 2019 Leonardo Scandolo.
  * All rights reserved.
  *
  * No claims are made as to fitness for any particular purpose.
