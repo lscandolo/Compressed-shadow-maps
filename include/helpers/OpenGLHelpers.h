@@ -11,7 +11,6 @@
 #include "OpenGLSamplerObject.h"
 #include "OpenGLShaderObject.h"
 #include "OpenGLTextureObject.h"
-#include "OpenGLCompositeObjects.h"
 
 namespace GLHelpers 
 {
